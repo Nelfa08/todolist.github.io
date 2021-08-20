@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>To Do List</title>
+</head>
+<body>
+
+    <!--Header-->
+    <div class="list">
+        <h2>To Do List</h2>
+        <form class="header">
+            <input type="text" name="titre" id="myInput" placeholder="Titre...">
+            <input type="button" onclick="newElement()" value="Ajouter">
+        </form>
+
+        <!--List-->
+        <form>
+            <ul id="myUL">
+                <li>
+                    <label>
+                        <input type="checkbox" name="liste[]">
+                        <p>Manger</p>
+                        <div onclick="suppr()" class="trash">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                    </label>
+                </li>
+
+                <li>
+                    <label>
+                        <input type="checkbox" name="liste[]">
+                        <p>Boire</p>
+                        <div onclick="suppr()" class="trash">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                    </label>
+                </li>
+
+                <li>
+                    <label>
+                        <div class="title">
+                            <input type="checkbox" checked="checked" name="liste[]">
+                            <p>Dormir</p>
+                        </div>
+                        <div onclick="suppr()" class="trash">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                    </label>
+                </li>
+
+                <li>
+                    <label>
+                        <input type="checkbox" name="liste[]">
+                        <p>Courir</p>
+                        <div onclick="suppr()" class="trash">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+            <div class="saveButton">
+                <input type="button" value="Sauvegarder">
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        /*Creer un nouvel item dans la liste*/
+
+        function newElement() {
+            
+            /*initialisation des variables*/
+
+            var li = document.createElement("LI");
+            var label = document.createElement("LABEL");
+            var input = document.createElement("INPUT");
+            input.setAttribute("type", "checkbox");
+            var p = document.createElement("P");
+            var inputValue = document.getElementById("myInput").value;
+            var t = document.createTextNode(inputValue);
+            var span = document.createElement("SPAN");
+            var div = document.createElement("DIV");
+            div.className = "trash";
+            div.onclick = suppr;
+            var i = document.createElement("I");
+            i.className = "fas fa-trash";
+            
+            /*condition si le contenu du titre est vide*/
+            if (inputValue === '') {
+                alert("Vous devez entrer un titre !!");
+            } else {
+                document.getElementById("myUL").appendChild(li);
+                li.appendChild(t);
+                li.appendChild(label);
+                label.appendChild(input);
+                label.appendChild(t);
+                label.appendChild(span);
+                label.appendChild(p);
+                p.appendChild(t);
+                label.appendChild(div);
+                div.appendChild(i);
+            }
+        }
+
+        /*supprimer un item de la liste*/
+        function suppr() {
+            var close = document.getElementsByClassName("trash");
+            var i;
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function() {
+                    var label = this.parentElement;
+                    var div = label.parentElement;
+                    div.style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

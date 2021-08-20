@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #111;
+}
+
+.list {
+    position: relative;
+    background-color: #fff;
+    width: 350px;
+}
+
+.list h2 {
+    text-align: center;
+    background-color: #03a9f4;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    border-bottom: solid 1px #ccc;
+}
+
+.list input[type=text] {
+    background-color: #03a9f4;
+    color: #fff;
+    border:solid 1px #ccc;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    outline-style: none;
+}
+
+.list input[type=submit], .list input[type=button] {
+    cursor: pointer;
+    color: #fff;
+    background-color: #03a9f4;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.list input[type=submit]:hover, .list input[type=button]:hover {
+    background-color: #9bd7f3;
+}
+
+.list ul {
+    position: relative;
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.list ul li {
+    position: relative;
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+}
+
+.list ul li label {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    height: 50px;
+    overflow: hidden;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.list ul li label input {
+    visibility: hidden;
+    appearance: none;
+}
+
+.list ul li label p {
+    position: absolute;
+    font-size: 20px;
+}
+
+.list ul li label input:checked ~ p {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.list ul li:hover .trash {
+    right: 0px;
+    transition: all .3s ease;
+}
+
+.trash {
+    position: absolute;
+    right: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+.saveButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
